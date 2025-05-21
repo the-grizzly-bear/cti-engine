@@ -1,0 +1,502 @@
+[
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: ff677c55-eec9-4c18-a7eb-386850ab3132\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: 4819d440-93f8-4ff4-94d1-16c79055acdf\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: 31c6cf81-cf5a-40b0-8b3b-0031aecaf296\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 9aa47c36-dd5f-4efd-9214-57ee64b5c554\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 50b4b26d-7871-40d1-986c-f1ebe171c315\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: 020b77c6-00e0-4933-b517-680d5024bd98\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 76e311e7-3949-4998-824f-ae25ab24d2da\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: b9cdf660-afa3-4f50-9fd1-4e1e99a8ce3d\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: c1c6b5b7-b20c-4da4-83cb-03b931e55db3\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: 7e6203e5-939a-4d79-9dfb-ed668c681442\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 60fc78aa-a357-46e3-a43f-51e8e4820f82\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: aef81984-daed-47aa-945a-df00fdc88a35\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 69a7ed81-2374-4636-8b06-7ce7dada149f\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: 80292488-6a17-4d12-bc32-0d527952331a\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: df4e32db-81f6-4633-887e-9746cf989b94\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: 82f21afd-b43f-45c7-b5a5-ae5b3e4debf4\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 9888839d-b2d4-4e6b-8e2d-d9b77ec70386\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: 66f5c150-e70c-4a7f-b61e-fb8f5934fbd2\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: 64873324-1524-41bb-bd49-521102397595\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: da02f2e1-1366-4767-b4a5-9f9e1446708f\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: 30b2c3ce-2e23-4a7b-8bc6-18b21e28f6cf\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 311dfccf-35c8-4ca5-9d63-c268f94c154f\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: d09ae618-6419-4b82-b5a9-02538057698d\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: e47ae5fe-fb7a-45e5-a582-bec36ec37e05\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: e2b82391-b00b-49a8-87cd-4362821ad7a5\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: d04c9e81-b0b3-4dcd-80fd-34d31da20fa6\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 2d38001b-4ae6-4241-b006-f1d8ac5cd8c4\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: a9aceb65-5f7d-451b-9d37-ca200df484de\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: 783a7ba8-d593-48f5-ad92-5961eac804c5\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: 5e4da130-ac98-44fc-873f-2cb46e52b1ba\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: 88fc1ce5-2c67-45d8-bc9c-18ffa4b066d9\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: fd3db4d9-bb86-4918-8353-f56e52b84fdd\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 273794f6-4d1c-40e6-bb1e-1bd079cb8459\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: c272c1b9-ac8d-48dd-b4e9-47fb84630828\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: 81afdb1f-5c5a-44e3-82b9-1b67b758e6c9\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: b6b3e7ce-b82f-4adb-ad68-ebad465b1984\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: e41913fe-46fb-45fd-8cb2-555c9623511b\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: 3fccf2b7-8b22-4b55-8814-cb33ce774aa1\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: 64e899a2-758c-4dd3-84eb-33abd207a38f\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: e81b3ffa-7699-4cb8-a777-197fdfefaf4e\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: bc3e4843-9be2-4e31-81c8-ea2654c03d84\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 1275320b-eb93-4c26-b6ad-4847114a8408\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 90bfb8b6-c1af-4efc-ab21-14f2d1d3d495\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: d850e55a-727e-445a-8563-d39ac60a0a46\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: 164c8804-da03-4ab9-9a3a-c0fca3dc1f02\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 0bd1b0e9-2000-4052-b893-f13ce7f2f09f\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: a01b94ed-2794-4a0e-af64-0b17b28679ae\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: d77f0318-b6b7-40c7-8850-f3a2675094d8\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: 47086d14-4a67-4f1b-91b2-4c0e314e3a7c\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 3725b69d-5566-47fe-921a-69f167e9fa3e\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: 3d7549f7-f7e8-4faa-9cb7-8737192974bc\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 53b3e24b-02a1-4f67-8808-8e4f6a25662a\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 4013da38-782d-48e6-850b-cde38a6028c7\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: eadcc4a3-59a4-47ad-a051-ba0085dbb412\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: 3db1a71a-acda-403f-9ae3-cfb2ba72514c\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: 08396468-fbe6-4207-bc15-858652e85f76\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 20fa1375-1f4e-4dda-a8aa-db23e2850dc0\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: d5989358-ceab-4cd6-b3d8-91004620e1ee\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 2ac64ca6-d513-4fd2-8ef6-3961d69e3dcc\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: cb40f706-1654-485a-acfa-3155ab05459e\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: e8c1dd86-d84e-4c66-979a-ccfdec1f9c26\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: f18698b5-e1d8-4230-a68a-e33e7b2e66e8\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 61a3ac5b-a332-4603-84f7-91ca909ab210\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: 53be123f-0e48-42d4-9830-5638eb4e646a\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: a13e9f5f-aefc-47cf-a2f8-44c4e74e0fab\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 0ac30a83-9c5e-4a6f-8320-02ddae3466ea\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: df0f394b-6552-4460-8837-b07df4f79afc\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 99baa204-4da0-49c6-98d2-6cde2a1cbeaf\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 3326bd19-1c01-4ff0-bb43-c70f673cd6cb\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 9869f372-e940-46e7-af9a-8cbf47a0b059\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: 1fdfed2d-2f98-4072-b9df-8d150aefa301\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 49bef83a-98e1-4eed-8ff5-fc5e691f53c7\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: d97d9724-deb6-4106-a3cb-ae060a664a89\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 646e36ff-3c46-4726-abec-fe3c3aa626c6\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: feaf8cb3-a92a-443a-8aa0-5145c09dc9a7\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 7b463f13-0686-4d31-8ab4-562b462cca39\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 1844a6d4-561d-49fb-9fe5-bb6a2837559a\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 3c130428-60e5-4114-99cb-5bb0861048d5\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 4349f74a-ba72-405c-98cf-99797cc011e9\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 6e37408e-bbca-4f83-858a-58d7569f14bd\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: aad7ab88-f337-425d-a85f-21eee351d345\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: 266d6786-5abc-4803-87ab-1a0f755f8e0c\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: 36109585-7e3b-4d7a-949e-36bcc26e196d\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: ef45f544-3259-4576-89c6-96f4d885eb8e\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 8f3b65ca-a830-40e9-a4f2-6ae304b93f57\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: e3cc9844-79c7-454f-8546-7e2872cc266b\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 758c96f2-0abc-4487-83f1-9043cdcef8ae\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: b04043b6-530e-454d-bfdf-df94038c1b10\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: 6e1c56ed-529a-428e-92a5-3b072e037917\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 91db416a-3d9b-49d4-9b45-12e348d2dba3\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule for detecting suspicious rundll32 usage",
+    "input": "",
+    "output": "title: Suspicious Rundll32 Execution\nid: b0854d2d-764e-445e-b317-f7b95bf63657\nstatus: test\ndescription: Detects suspicious use of rundll32 for executing scripts or external payloads.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: 'rundll32.exe'\n    CommandLine|contains:\n      - 'javascript:'\n      - 'http'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.defense_evasion\n  - attack.t1218.011\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 665baec1-b831-486c-a6c1-1598f364560c\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: 12a28884-7d96-4f37-8b80-be9c681582b1\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: 0bf2ea83-c8f7-4288-a64c-a7d78621de44\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: c81959b1-536a-489d-9940-2b45fe96e952\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: d92249be-b265-4bf1-a957-159767e94747\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: d15761ba-cd53-4e05-b2d8-9b674e18498e\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Generate a Sigma rule to detect use of 7zip for mass compression of files",
+    "input": "",
+    "output": "title: Mass File Compression via 7zip\nid: c06d0f2c-e250-48fd-b878-354ed10d60c5\nstatus: test\ndescription: Detects large-scale file compression activities using 7z.exe which may be a sign of exfiltration prep.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    Image|endswith: '7z.exe'\n    CommandLine|contains: 'a '\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: medium\ntags:\n  - attack.exfiltration\n  - attack.t1560.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule for detecting Mimikatz usage in memory",
+    "input": "",
+    "output": "title: Mimikatz LSASS Access\nid: 80952903-d1d4-4a84-ac8f-c0ba8414c31d\nstatus: test\ndescription: Detects memory access to LSASS which may indicate Mimikatz activity.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_access\ndetection:\n  selection:\n    TargetImage|endswith: 'lsass.exe'\n    CallTrace|contains: 'mimikatz'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: critical\ntags:\n  - attack.credential_access\n  - attack.t1003.001\n"
+  },
+  {
+    "instruction": "Create a Sigma rule to detect PowerShell downloading files from the internet",
+    "input": "",
+    "output": "title: PowerShell Web Download\nid: 4f1dc81e-2408-4565-ae3f-90d76b88b4b6\nstatus: test\ndescription: Detects PowerShell use to download files using Invoke-WebRequest or similar methods.\nauthor: AI Generated\ndate: 2025-05-12\nlogsource:\n  product: windows\n  category: process_creation\ndetection:\n  selection:\n    CommandLine|contains:\n      - 'Invoke-WebRequest'\n      - 'Invoke-RestMethod'\n  condition: selection\nfalsepositives:\n  - Legitimate software or admin activity\nlevel: high\ntags:\n  - attack.command_and_control\n  - attack.t1105\n"
+  }
+]
